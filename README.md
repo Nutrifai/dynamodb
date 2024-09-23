@@ -62,7 +62,7 @@ This module creates a Lambda function to handle user session authorization.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Nutrifai/lambda-login.git
+git clone https://github.com/Nutrifai/dynamodb.git
 cd infra
 ```
 
