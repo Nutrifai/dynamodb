@@ -1,3 +1,4 @@
+# USER
 resource "aws_dynamodb_table" "user_table" {
   name         = "User"
   billing_mode = "PAY_PER_REQUEST"
@@ -13,6 +14,7 @@ resource "aws_dynamodb_table" "user_table" {
   }
 }
 
+# SESSION
 resource "aws_dynamodb_table" "session_table" {
   name         = "Session"
   billing_mode = "PAY_PER_REQUEST"
@@ -33,6 +35,7 @@ resource "aws_dynamodb_table" "session_table" {
   }
 }
 
+# DIET
 resource "aws_dynamodb_table" "diet_table" {
   name         = "Diet"
   billing_mode = "PAY_PER_REQUEST"
@@ -51,5 +54,27 @@ resource "aws_dynamodb_table" "diet_table" {
 
   tags = {
     Name = "Diet"
+  }
+}
+
+# Appointments
+resource "aws_dynamodb_table" "appointment_table" {
+  name         = "Appointment"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "nutriId"
+  range_key    = "appointmentId"
+
+  attribute {
+    name = "nutriId"
+    type = "S"
+  }
+
+  attribute {
+    name = "appointmentId"
+    type = "S"
+  }
+
+  tags = {
+    Name = "Appointment"
   }
 }

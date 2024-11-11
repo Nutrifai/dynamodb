@@ -16,6 +16,7 @@ Stores information about the users of the platform, such as user profile details
 - `name`: Full name of the user.
 - `email`: User email address.
 - `createdAt`: Timestamp when the user account was created.
+- `isNutri`: Boolean, indicates whether the user is a nutritionist or not
 
 ## 2. Session Table
 
@@ -31,7 +32,22 @@ Stores session data for users, such as login sessions, expiration times, and use
 - `sessionId`: Unique session identifier.
 - `expireOn`: Expiration time of the session.
 
-## 3. Diet Table
+## 3. Appointments Table
+
+**Purpose**:  
+Stores appointment details for users, including appointment times.
+
+**Primary Keys**:
+- **Partition Key (Hash Key)**: `userId` (String) - Unique identifier for each user.
+- **Sort Key (Range Key)**: `appointmentId` (String) - Unique identifier for each appointment.
+
+**Attributes**:
+- `userId`: Unique user identifier.
+- `appointmentId`: Unique appointment identifier.
+- `appointmentDate`: Scheduled time for the appointment.
+- `patientId`: Id of the patient.
+
+## 4. Diet Table
 
 **Purpose**:  
 Stores dietary information for users.
@@ -51,6 +67,7 @@ To use this project, ensure you have the following installed:
 - [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate permissions
 
 Ensure that your AWS credentials are configured correctly using `aws configure`
+
 
 ## Instructions to Deploy Locally
 
